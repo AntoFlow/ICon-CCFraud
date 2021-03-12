@@ -116,6 +116,7 @@ venv.bak/
 
 # Rope project settings
 .ropeproject
+Credit_card_fraud_dataset
 
 # mkdocs documentation
 /site
