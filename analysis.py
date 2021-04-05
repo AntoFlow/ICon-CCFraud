@@ -1,8 +1,12 @@
 import pandas
 import matplotlib.pyplot as plt
 import seaborn
-import numpy as np
 
+def print_confusion_matrix(matrix):
+    df_cm = pandas.DataFrame(matrix, index=["Normal", "Fraud"], columns=["Normal", "Fraud"])
+    plt.figure(figsize=(10, 7))
+    seaborn.heatmap(df_cm, annot=True)
+    plt.show()
 
 def data_analysis(file_path):
     data = pandas.read_csv(file_path, sep=",", index_col=None)
@@ -56,4 +60,4 @@ def data_analysis(file_path):
 
     plt.show()
 
-data_analysis('Credit_card_fraud_dataset/creditcard.csv')
+#data_analysis('Credit_card_fraud_dataset/creditcard.csv')
