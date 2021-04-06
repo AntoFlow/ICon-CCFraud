@@ -14,6 +14,10 @@ X, y = data_set_ini('Credit_card_fraud_dataset/creditcard.csv', 5)
 
 scalar = StandardScaler()
 
+'''
+Split del set di dati in train, validation e test set.
+'''
+
 x_train, x_test, y_train, y_test = train_test_split(X.values, y.values, test_size=0.3, random_state=42)
 x_v_train, x_validate, y_v_train, y_validate = train_test_split(x_train, y_train, test_size=0.25, random_state=42)
 
@@ -22,6 +26,10 @@ x_validate = scalar.fit_transform(x_validate)
 x_test = scalar.fit_transform(x_test)
 
 print_sets(x_v_train, y_v_train, x_validate, y_validate, x_test, y_test)
+
+'''
+Richiamo dei vari modelli presenti in Models.py, con associato grafico (generalmente matrice di confusione)
+'''
 
 confusion_matrix, score = random_forest(x_v_train, y_v_train, x_test, y_test, list(X.columns.values))
 scores = {'Random Forest': {'Test': score}}
@@ -42,5 +50,9 @@ print_confusion_matrix(confusion_matrix)
 confusion_matrix, score = ada_boost(x_v_train, y_v_train, x_test, y_test)
 scores['ADAboost'] = {'Test': score}
 print_confusion_matrix(confusion_matrix)
+
+'''
+Stampa del grafico in cui vengono confrontati i vari modelli tra loro (utilizzando il dizionario scores).
+'''
 
 print_scores(scores)
