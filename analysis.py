@@ -60,6 +60,9 @@ def data_analysis(file_path):
 
     plt.show()
 
+'''
+Procedura di stampa del grafico che evidenzia l'evoluzione delle metriche durante l'addestramento della rete.
+'''
 def print_ann_result(result):
     plt.figure(figsize=(12, 16))
 
@@ -87,6 +90,10 @@ def print_ann_result(result):
     plt.title('Recall evolution during training')
     plt.legend()
 
+
+'''
+Procedura di stampa del grafico di confronto di modelli.
+'''
 def print_scores(scores):
     score_data = pandas.DataFrame(scores)
     score_data.plot(kind='barh', figsize=(15, 6))
