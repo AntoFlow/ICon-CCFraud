@@ -20,6 +20,9 @@ def data_set_ini(file_path, normal_perc):
     randomizzo l'ordine di normal e
     Successivamente si uniscono con una proporzionalità differente
     '''
+    #fraud_detection['Amount'] = StandardScaler().fit_transform(fraud_detection['Amount'].values.reshape(-1, 1))
+    #fraud_detection['Time'] = StandardScaler().fit_transform(fraud_detection['Time'].values.reshape(-1, 1))
+
     normal = fraud_detection[fraud_detection["Class"] == 0]
     normal = normal.iloc[np.random.permutation(len(normal))]
     fraud = fraud_detection[fraud_detection["Class"] == 1]

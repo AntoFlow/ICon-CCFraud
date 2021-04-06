@@ -60,4 +60,35 @@ def data_analysis(file_path):
 
     plt.show()
 
-#data_analysis('Credit_card_fraud_dataset/creditcard.csv')
+def print_ann_result(result):
+    plt.figure(figsize=(12, 16))
+
+    plt.subplot(3, 2, 1)
+    plt.plot(result.history['loss'], label='Loss')
+    plt.plot(result.history['val_loss'], label='val_Loss')
+    plt.title('Loss Function evolution during training')
+    plt.legend()
+
+    plt.subplot(3, 2, 2)
+    plt.plot(result.history['fn'], label='fn')
+    plt.plot(result.history['val_fn'], label='val_fn')
+    plt.title('Accuracy evolution during training')
+    plt.legend()
+
+    plt.subplot(3, 2, 3)
+    plt.plot(result.history['precision'], label='precision')
+    plt.plot(result.history['val_precision'], label='val_precision')
+    plt.title('Precision evolution during training')
+    plt.legend()
+
+    plt.subplot(3, 2, 4)
+    plt.plot(result.history['recall'], label='recall')
+    plt.plot(result.history['val_recall'], label='val_recall')
+    plt.title('Recall evolution during training')
+    plt.legend()
+
+def print_scores(scores):
+    score_data = pandas.DataFrame(scores)
+    score_data.plot(kind='barh', figsize=(15, 6))
+    plt.show()
+
